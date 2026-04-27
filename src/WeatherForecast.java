@@ -9,17 +9,11 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-/**
- * Fetches and displays a 7-day weather forecast from the Open-Meteo API
- * for Bloomington, Indiana.
- */
 class WeatherForecast {
 
     /**
-     * Fetches the 7-day hourly forecast and prints temperatures at 3-hour intervals.
-     *
+     * Retrieves the 7-day hourly forecast and prints temperatures at 3-hour intervals.
      * @param args command-line arguments (not used).
-     * @throws IOException if the HTTP request fails or the response cannot be read.
      */
     public static void main(String[] args) throws IOException {
         String urlString = "https://api.open-meteo.com/v1/forecast?latitude=39.168804&longitude=-86.536659&hourly=temperature_2m&temperature_unit=fahrenheit&timezone=EST";

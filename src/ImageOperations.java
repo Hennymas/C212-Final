@@ -5,7 +5,6 @@ class ImageOperations {
 
     /**
      * Removes the red channel from the image, keeping only green and blue.
-     *
      * @param img the source image.
      * @return a new image with the red channel set to zero.
      */
@@ -26,7 +25,6 @@ class ImageOperations {
 
     /**
      * Converts the image to grayscale using the luminance formula.
-     *
      * @param img the source image.
      * @return a new grayscale image.
      */
@@ -49,7 +47,6 @@ class ImageOperations {
 
     /**
      * Inverts all color channels of the image.
-     *
      * @param img the source image.
      * @return a new image with inverted colors.
      */
@@ -71,7 +68,6 @@ class ImageOperations {
 
     /**
      * Mirrors the image in the specified direction.
-     *
      * @param img the source image.
      * @param dir the direction to mirror, either horizontal or vertical.
      * @return a new mirrored image.
@@ -97,37 +93,9 @@ class ImageOperations {
     }
 
     /**
-     * Rotates the image 90 degrees in the specified direction.
-     *
-     * @param img the source image.
-     * @param dir the direction to rotate, either clockwise or counter-clockwise.
-     * @return a new rotated image.
-     */
-    static BufferedImage rotate(BufferedImage img, RotateMenuItem.RotateDirection dir) {
-        int width = img.getWidth();
-        int height = img.getHeight();
-        BufferedImage newImg = new BufferedImage(height, width, BufferedImage.TYPE_INT_RGB);
-        if (dir == RotateMenuItem.RotateDirection.CLOCKWISE) {
-            for (int y = 0; y < height; y++) {
-                for (int x = 0; x < width; x++) {
-                    newImg.setRGB(height - 1 - y, x, img.getRGB(x, y));
-                }
-            }
-        } else {
-            for (int y = 0; y < height; y++) {
-                for (int x = 0; x < width; x++) {
-                    newImg.setRGB(y, width - 1 - x, img.getRGB(x, y));
-                }
-            }
-        }
-        return newImg;
-    }
-
-    /**
      * Repeats the image a specified number of times in the given direction.
-     *
      * @param img the source image.
-     * @param n   the number of times to repeat the image.
+     * @param n the number of times to repeat the image.
      * @param dir the direction to repeat, either horizontal or vertical.
      * @return a new image with the source tiled n times.
      */
@@ -158,11 +126,36 @@ class ImageOperations {
     }
 
     /**
+     * Rotates the image 90 degrees in the specified direction.
+     * @param img the source image.
+     * @param dir the direction to rotate, either clockwise or counter-clockwise.
+     * @return a new rotated image.
+     */
+    static BufferedImage rotate(BufferedImage img, RotateMenuItem.RotateDirection dir) {
+        int width = img.getWidth();
+        int height = img.getHeight();
+        BufferedImage newImg = new BufferedImage(height, width, BufferedImage.TYPE_INT_RGB);
+        if (dir == RotateMenuItem.RotateDirection.CLOCKWISE) {
+            for (int y = 0; y < height; y++) {
+                for (int x = 0; x < width; x++) {
+                    newImg.setRGB(height - 1 - y, x, img.getRGB(x, y));
+                }
+            }
+        } else {
+            for (int y = 0; y < height; y++) {
+                for (int x = 0; x < width; x++) {
+                    newImg.setRGB(y, width - 1 - x, img.getRGB(x, y));
+                }
+            }
+        }
+        return newImg;
+    }
+
+    /**
      * Zooms in on the image. The zoom factor increases in multiplicatives of 10% and
      * decreases in multiplicatives of 10%.
-     *
-     * @param img        the original image to zoom in on. The image cannot be already zoomed in
-     *                   or out because then the image will be distorted.
+     * @param img the original image to zoom in on.
+     * The image cannot be already zoomed in or out because then the image will be distorted.
      * @param zoomFactor The factor to zoom in by.
      * @return the zoomed in image.
      */

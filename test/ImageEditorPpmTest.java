@@ -14,9 +14,8 @@ class ImageEditorPpmTest {
 
     /**
      * Creates a small PPM file for testing.
-     *
-     * @param file   the file to write to.
-     * @param width  the image width.
+     * @param file the file to write to.
+     * @param width the image width.
      * @param height the image height.
      * @throws IOException if the file cannot be written.
      */

@@ -6,6 +6,5 @@ class EditMenu extends JMenu {
         super("Edit");
         this.add(new UndoMenuItem(mainPanel));
         this.add(new RedoMenuItem(mainPanel));
-//        this.add(new ZoomMenuItem(mainPanel));
     }
 }

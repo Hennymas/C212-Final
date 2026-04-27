@@ -8,13 +8,11 @@ import java.awt.image.BufferedImage;
  * provide it as a means for students who are not familiar with bitwise operations to complete the assignment.
  */
 class ColorOperations {
-
     /**
-     * Retrieves the color at the specified coordinate position in the image.
-     *
+     * Retrieves the color at the specified coordinate position in the images.
      * @param img image to retrieve color from.
-     * @param x   x-coordinate of the pixel.
-     * @param y   y-coordinate of the pixel.
+     * @param x x-coordinate of the pixel.
+     * @param y y-coordinate of the pixel.
      * @return Color object representing the color at the specified position.
      */
     static Color getColorAtPos(BufferedImage img, int x, int y) {
@@ -27,7 +25,6 @@ class ColorOperations {
 
     /**
      * Retrieves the red channel value from the specified RGB value.
-     *
      * @param rgb RGB integer value.
      * @return red channel value.
      */
@@ -37,7 +34,6 @@ class ColorOperations {
 
     /**
      * Retrieves the green channel value from the specified RGB value.
-     *
      * @param rgb RGB integer value.
      * @return green channel value.
      */
@@ -47,7 +43,6 @@ class ColorOperations {
 
     /**
      * Retrieves the blue channel value from the specified RGB value.
-     *
      * @param rgb RGB integer value.
      * @return blue channel value.
      */

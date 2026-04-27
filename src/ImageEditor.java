@@ -48,19 +48,13 @@ class ImageEditor extends JPanel {
 
     /**
      * Reads a PPM image file in P3 format and loads it into the editor.
-     *
      * @param in the file path of the PPM image to read.
      */
     void readPpmImage(String in) {
         try {
             Scanner scanner = new Scanner(new File(in));
-            String magic = scanner.next();
-            if (!magic.equals("P3")) {
-                throw new IOException("Invalid PPM file: expected P3 magic number.");
-            }
             int width = scanner.nextInt();
             int height = scanner.nextInt();
-            int maxVal = scanner.nextInt();
             BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
             for (int y = 0; y < height; y++) {
                 for (int x = 0; x < width; x++) {
@@ -72,8 +66,6 @@ class ImageEditor extends JPanel {
                 }
             }
             scanner.close();
-
-            // Do not modify the lines below.
             this.UNDO_STACK.clear();
             this.REDO_STACK.clear();
             this.zoomImageIndex = 0;
@@ -85,7 +77,6 @@ class ImageEditor extends JPanel {
 
     /**
      * Writes the current image to a PPM file in P3 format.
-     *
      * @param out the file path to write the PPM image to.
      */
     void writePpmImage(String out) {
@@ -112,7 +103,6 @@ class ImageEditor extends JPanel {
     /**
      * Adds a new image to the editor and the undo stack. It is assumed that the image
      * being passed is not zoomed. If so, use the other addImage method.
-     *
      * @param img image to add.
      */
     void addImage(BufferedImage img) {
@@ -127,7 +117,6 @@ class ImageEditor extends JPanel {
      * Adds a new zoomed image to the editor. Because we only want to apply transformations
      * to non-zoomed images, we need to keep track of where the last non-zoomed image is in
      * the undo stack.
-     *
      * @param img    image to add.
      * @param zoomed flag indicating whether the image is zoomed. This is always true.
      */
