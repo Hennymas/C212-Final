@@ -21,7 +21,7 @@ class WeatherForecast {
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
         int code = conn.getResponseCode();
-        if (code != HttpURLConnection.HTTP_OK) {
+        if (code != 200) {
             throw new IOException("Request failed: " + code);
         }
         BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
