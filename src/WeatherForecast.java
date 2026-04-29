@@ -37,7 +37,6 @@ class WeatherForecast {
         JsonArray times = root.getAsJsonObject().get("hourly").getAsJsonObject().get("time").getAsJsonArray();
         JsonArray temps = root.getAsJsonObject().get("hourly").getAsJsonObject().get("temperature_2m").getAsJsonArray();
 
-
         System.out.println("7-Day Forecast in Fahrenheit:");
         for (int day = 0; day < 7; day++) {
             int dayStart = day * 24;
