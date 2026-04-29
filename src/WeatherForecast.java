@@ -21,7 +21,7 @@ class WeatherForecast {
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
         int code = conn.getResponseCode();
-        if (code != HttpURLConnection.HTTP_OK) {
+        if (code != 200) {
             throw new IOException("Request failed: " + code);
         }
         BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -34,9 +34,9 @@ class WeatherForecast {
         conn.disconnect();
 
         JsonElement root = JsonParser.parseString(sb.toString());
-        JsonObject hourly = root.getAsJsonObject().getAsJsonObject("hourly");
-        JsonArray timeArray = hourly.getAsJsonArray("time");
-        JsonArray tempArray = hourly.getAsJsonArray("temperature_2m");
+        JsonArray times = root.getAsJsonObject().get("hourly").getAsJsonObject().get("time").getAsJsonArray();
+        JsonArray temps = root.getAsJsonObject().get("hourly").getAsJsonObject().get("temperature_2m").getAsJsonArray();
+
 
         System.out.println("7-Day Forecast in Fahrenheit:");
         for (int day = 0; day < 7; day++) {
