@@ -9,7 +9,6 @@ class ImageOperationsTest {
 
     /**
      * Creates a small test image with known pixel colors.
-     *
      * @param width  the width of the test image.
      * @param height the height of the test image.
      * @return a BufferedImage with predictable pixel values.

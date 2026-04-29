@@ -53,6 +53,10 @@ class ImageEditor extends JPanel {
     void readPpmImage(String in) {
         try {
             Scanner scanner = new Scanner(new File(in));
+            String magic = scanner.next();
+            if (!magic.equals("P3")) {
+                throw new IOException("Invalid PPM file: expected P3 magic number.");
+            }
             int width = scanner.nextInt();
             int height = scanner.nextInt();
             BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -66,6 +70,8 @@ class ImageEditor extends JPanel {
                 }
             }
             scanner.close();
+
+            // Do not modify the lines below.
             this.UNDO_STACK.clear();
             this.REDO_STACK.clear();
             this.zoomImageIndex = 0;
@@ -117,7 +123,7 @@ class ImageEditor extends JPanel {
      * Adds a new zoomed image to the editor. Because we only want to apply transformations
      * to non-zoomed images, we need to keep track of where the last non-zoomed image is in
      * the undo stack.
-     * @param img    image to add.
+     * @param img image to add.
      * @param zoomed flag indicating whether the image is zoomed. This is always true.
      */
     void addImage(BufferedImage img, boolean zoomed) {
