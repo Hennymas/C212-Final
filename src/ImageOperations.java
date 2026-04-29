@@ -128,7 +128,7 @@ class ImageOperations {
     /**
      * Rotates the image 90 degrees in the specified direction.
      * @param img the source image.
-     * @param dir the direction to rotate, either clockwise or counter-clockwise.
+     * @param dir the direction to rotate, either CLOCKWISE or COUNTERCLOCKWISE.
      * @return a new rotated image.
      */
     static BufferedImage rotate(BufferedImage img, RotateMenuItem.RotateDirection dir) {
