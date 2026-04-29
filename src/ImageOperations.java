@@ -69,7 +69,7 @@ class ImageOperations {
     /**
      * Mirrors the image in the specified direction.
      * @param img the source image.
-     * @param dir the direction to mirror, either horizontal or vertical.
+     * @param dir the direction to mirror, either "HORIZONTAL" or "VERTICAL".
      * @return a new mirrored image.
      */
     static BufferedImage mirror(BufferedImage img, MirrorMenuItem.MirrorDirection dir) {
