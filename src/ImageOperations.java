@@ -96,7 +96,7 @@ class ImageOperations {
      * Repeats the image a specified number of times in the given direction.
      * @param img the source image.
      * @param n the number of times to repeat the image.
-     * @param dir the direction to repeat, either horizontal or vertical.
+     * @param dir the direction to repeat, either "HORIZONTAL" or "VERTICAL".
      * @return a new image with the source tiled n times.
      */
     static BufferedImage repeat(BufferedImage img, int n, RepeatMenuItem.RepeatDirection dir) {
