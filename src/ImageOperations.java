@@ -69,7 +69,7 @@ class ImageOperations {
     /**
      * Mirrors the image in the specified direction.
      * @param img the source image.
-     * @param dir the direction to mirror, either "HORIZONTAL" or "VERTICAL".
+     * @param dir the direction to mirror, either HORIZONTAL or VERTICAL.
      * @return a new mirrored image.
      */
     static BufferedImage mirror(BufferedImage img, MirrorMenuItem.MirrorDirection dir) {
@@ -96,7 +96,7 @@ class ImageOperations {
      * Repeats the image a specified number of times in the given direction.
      * @param img the source image.
      * @param n the number of times to repeat the image.
-     * @param dir the direction to repeat, either "HORIZONTAL" or "VERTICAL".
+     * @param dir the direction to repeat, either HORIZONTAL or VERTICAL.
      * @return a new image with the source tiled n times.
      */
     static BufferedImage repeat(BufferedImage img, int n, RepeatMenuItem.RepeatDirection dir) {
